@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var firstNameTextField: UITextField!
     
+    var firstName : String? = nil
+    var name : String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        print("View Did Load")
@@ -36,9 +39,13 @@ class ViewController: UIViewController {
     
     
     @IBAction func btnClick(_ sender: Any) {
-        welcomeLabel.textColor = UIColor.black
+        /*welcomeLabel.textColor = UIColor.black
         welcomeLabel.backgroundColor = .orange
-        var firstName = firstNameTextField.text
-        welcomeLabel.text = "Welcome to iOS!" + (firstName ?? "Vaishnavi")
+        firstName = firstNameTextField.text
+       
+        welcomeLabel.text = "Welcome to iOS! \(firstName ?? "Rohan")"*/
+        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+       
+        navigationController?.pushViewController(homeViewController, animated: true)
     }
 }
